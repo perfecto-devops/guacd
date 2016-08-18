@@ -21,7 +21,7 @@ RUN apt-get install autoconf -y
 RUN apt-get install libavcodec-dev -y
 RUN apt-get install libswscale-dev -y
 RUN apt-get install libvncserver-dev -y
-RUN mkdir /compile && cd /compile && git clone https://github.com/apache/incubator-guacamole-server.git && cd /compile/incubator-guacamole-server && git checkout 4734d15fb6aaaa1b51e0fb5ee10e6b1db5d9002f && autoreconf -fi && ./configure && make && make install && ldconfig  
+RUN mkdir /compile && cd /compile && git clone https://github.com/apache/incubator-guacamole-server.git && cd /compile/incubator-guacamole-server && git checkout 2a0d2445c1d33c67feb3d4671276e46248662bee && autoreconf -fi && ./configure && make && make install && ldconfig  
 RUN mkdir -p /usr/lib/x86_64-linux-gnu/freerdp/ && ln -s /usr/local/lib/freerdp/guac* /usr/lib/x86_64-linux-gnu/freerdp/
 EXPOSE 4822
 CMD [ "/usr/local/sbin/guacd", "-b", "0.0.0.0", "-f" ]
